@@ -31,7 +31,7 @@ pipeline {
 	    
         stage ("Copying the above Artifact to the Dockerfile location") {
             steps {
-                sh 'sudo cp Testing/Pipeline1/target/trucks.war /opt/dockerfiles'
+                sh sudo cp 'Testing/Pipeline1/target/trucks.war /opt/dockerfiles'
             }
         }
 
