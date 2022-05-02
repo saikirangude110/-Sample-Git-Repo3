@@ -18,9 +18,9 @@ pipeline {
 	    stage('Cleaning Old Build History') {
 		    steps {
                 echo "Packaging Code..."
-			    sh 'mvn clean'
-		    }
+		    sh 'mvn clean'
 	    }
+	}
                
         stage('Generating Artifact') {
 	   steps {
@@ -31,7 +31,7 @@ pipeline {
 	    
         stage ("Copying the above Artifact to the Dockerfile location") {
             steps {
-                sh sudo cp 'Testing/Pipeline1/target/trucks.war /opt/dockerfiles'
+                sh sudo cp 'Testing/Pipeline1/target/trucks.war' /opt/dockerfiles
             }
         }
 
