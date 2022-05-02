@@ -33,7 +33,7 @@ pipeline {
 	stage('Build Docker Image') {
 	    steps {
                  sh 'whoami'
-                 sh 'docker build -t hello-world:4.0'
+                 sh 'docker build -t hello-world:4.0 Dockerfile'
 		 sh 'docker tag hello-world:4.0 saikirangude12/hello-world:4.0'
 			    }
 		    }
