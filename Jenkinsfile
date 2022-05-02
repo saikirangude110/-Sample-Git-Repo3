@@ -6,7 +6,7 @@ pipeline {
                 CLUSTER_NAME = 'k8s-cluster'
                 LOCATION = 'us-central1-c'
                 CREDENTIALS_ID = 'kubernetes'		
-	}
+	           }
 	
     stages {
 	    stage('Scm Checkout') {
@@ -15,28 +15,41 @@ pipeline {
 		    }
 	    }
 	    
-	    stage('Build') {
+	    stage('Cleaning Old Build History') {
 		    steps {
                 echo "Packaging Code..."
-			    sh 'mvn clean package'
+			    sh 'mvn clean'
 		    }
 	    }
-	    
-	    stage('Test') {
+        
+        stage('Testing') {
 		    steps {
 			    echo "Testing..."
 			    sh 'mvn test'
 		    }
 	    }
-	   
-	    stage ("Creating Docker Image by using the above Artifact and Pushing it to DockerHub Repo") {
-                    steps {
-                             sh '''
-                             sudo docker build -t hello-world:v4.0 .
-                             sudo docker tag hello-world:v4.0 saikirangude12/hello-world:v4.0
-                             sudo docker push saikirangude12/hello-world:v4.0
-                             '''
+        
+        stage('Generating Artifact') {
+		    steps {
+                echo "Packaging Code..."
+			    sh 'mvn package'
+		    }
+	    }
+	    
+        stage ("Copying the above Artifact to the Dockerfile location") {
+            steps {
+                sh 'sudo cp Testing/Pipeline1/target/trucks.war /opt/dockerfiles'
+            }
+        }
+
+        stage ("Creating Docker Image by using the above Artifact and Pushing it to DockerHub Repo") {
+            steps {
+                sh '''
+                sudo docker build -t hello-world:v4.0 .
+                sudo docker tag hello-world:v4.0 saikirangude12/hello-world:v4.0
+                sudo docker push saikirangude12/hello-world:v4.0
+                '''
+            }
         }
     }
 }
-	    
