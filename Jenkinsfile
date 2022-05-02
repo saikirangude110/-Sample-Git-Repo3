@@ -30,12 +30,19 @@ pipeline {
 	    }
         }
 	    
-	stage('Build Docker Image') {
-	    steps {
-                 sh 'whoami'
-                 sh 'sudo docker build -t hello-world:4.0 Dockerfile'
-		 sh 'sudo docker tag hello-world:4.0 saikirangude12/hello-world:4.0'
-			    }
+	    stage('Scm Checkout') {
+		    steps {
+			    git 'https://github.com/saikirangude110/Sample-Git-Repo1.git'
 		    }
 	    }
+	    
+	    stage('Building image') {
+	            steps{
+                       script {
+                            dockerImage = docker.build registry + ":latest"
+        }
+      }
+    }
+	    
+	 }
     }
