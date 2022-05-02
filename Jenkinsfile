@@ -34,7 +34,7 @@ pipeline {
 	    steps {
                  sh 'whoami'
 		 script {
-		   myimage = docker.build("saikirangude12/hello-world:${env.BUILD_ID}") ./Dockerfile
+		   myimage = docker.build("saikirangude12/hello-world:${env.BUILD_ID}")
 			    }
 		    }
 	    }
