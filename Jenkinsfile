@@ -34,7 +34,7 @@ pipeline {
 	    steps {
                  sh 'whoami'
                  docker build -t hello-world + ":latest" ./Dockerfile
-		 docker tag hello-world:4.0 saikirangude12/hello-world:4.0
+		 docker tag hello-world:4.0 saikirangude12/hello-world + ":latest"
 			    }
 		    }
 	    }
