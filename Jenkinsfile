@@ -28,6 +28,15 @@ pipeline {
 			    sh 'mvn test'
 		    }
 	    }
-	}
+	   
+	    stage ("Creating Docker Image by using the above Artifact and Pushing it to DockerHub Repo") {
+                    steps {
+                             sh '''
+                             sudo docker build -t hello-world:v4.0 .
+                             sudo docker tag hello-world:v4.0 saikirangude12/hello-world:v4.0
+                             sudo docker push saikirangude12/hello-world:v4.0
+                             '''
+        }
+    }
 }
 	    
