@@ -2,16 +2,16 @@ pipeline {
     agent { label 'Jenkins_Node1' }
 	
 	environment {
-		PROJECT_ID = 'Demo1'
-                CLUSTER_NAME = 'autopilot-cluster-1'
-                LOCATION = 'us-central1'
+		PROJECT_ID = 'jenkins-296812'
+                CLUSTER_NAME = 'k8s-cluster'
+                LOCATION = 'us-central1-c'
                 CREDENTIALS_ID = 'kubernetes'		
 	}
 	
     stages {
 	    stage('Scm Checkout') {
 		    steps {
-			    git 'https://github.com/saikirangude110/Sample-Git-Repo3.git'
+			    git 'https://github.com/saikirangude110/Sample-Git-Repo2.git'
 		    }
 	    }
 	    
@@ -28,15 +28,6 @@ pipeline {
 			    sh 'mvn test'
 		    }
 	    }
-	    
-	    stage('Build Docker Image') {
-		    steps {
-			    sh 'whoami'
-			    script {
-				    myimage = docker.build("ameintu/devops:${env.BUILD_ID}")
-			    }
-		    }
-	    }
-    }
+	}
 }
 	    
