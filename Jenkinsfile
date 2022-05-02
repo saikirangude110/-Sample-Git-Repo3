@@ -34,7 +34,7 @@ pipeline {
 	    steps {
                  sh 'whoami'
 		 script {
-		   dockerImage = docker.build registry + ":$BUILD_NUMBER"
+		   dockerImage = docker.build registry + ":$BUILD_NUMBER" ./Dockerfile
 			    }
 		    }
 	    }
