@@ -27,24 +27,15 @@ pipeline {
                 echo "Packaging Code..."
 	        sh 'mvn package'
 	    }
-       }
-	    
-        stage('Building image') {
-	   steps{
-                script {
-                dockerImage = docker.build registry + ":latest"
-            }
-         }
-       }
-
-        stage ("Creating Docker Image by using the above Artifact and Pushing it to DockerHub Repo") {
-            steps {
-                sh '''
-                sudo docker build -t hello-world:v4.0 .
-                sudo docker tag hello-world:v4.0 saikirangude12/hello-world:v4.0
-                sudo docker push saikirangude12/hello-world:v4.0
-                '''
-            }
         }
+	    
+	stage('Build Docker Image') {
+	    steps {
+                 sh 'whoami'
+		 script {
+		 myimage = docker.build("ameintu/devops:${env.BUILD_ID}")
+			    }
+		    }
+	    }
     }
 }
