@@ -34,7 +34,7 @@ pipeline {
 	    steps {
                  sh 'whoami'
 		 script {
-		   dockerImage = docker.build registry + ":$BUILD_NUMBER" ./Dockerfile
+		   myimage = docker.build("saikirangude12/hello-world:${env.BUILD_ID}") ./Dockerfile
 			    }
 		    }
 	    }
