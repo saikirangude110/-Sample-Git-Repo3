@@ -33,8 +33,7 @@ pipeline {
 	stage('Build Docker Image') {
 	    steps {
                  sh 'whoami'
-		 script {
-		   myimage = docker.build("saikirangude12/hello-world:${env.BUILD_ID}")
+                 docker build -t saikirangude12/hello-world:${env.BUILD_ID}") ./Dockerfile
 			    }
 		    }
 	    }
