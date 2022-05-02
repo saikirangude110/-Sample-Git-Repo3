@@ -1,8 +1,5 @@
 pipeline {
-    agent any
-	tools {
-		maven 'Maven'
-	}
+    agent { label 'Jenkins_Node1' }
 	
 	environment {
 		PROJECT_ID = 'jenkins-296812'
