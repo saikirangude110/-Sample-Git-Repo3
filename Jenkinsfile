@@ -23,18 +23,11 @@ pipeline {
 	    }
                
         stage('Generating Artifact') {
-		    steps {
+	   steps {
                 echo "Packaging Code..."
-			    sh 'mvn package'
-		    }
+	        sh 'mvn package'
 	    }
-	
-	stage('Testing') {
-	    steps {
-	        echo "Testing..."
-	        sh 'mvn test'
-	    }
-	}
+       }
 	    
         stage ("Copying the above Artifact to the Dockerfile location") {
             steps {
