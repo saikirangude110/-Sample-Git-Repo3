@@ -29,11 +29,13 @@ pipeline {
 	    }
        }
 	    
-        stage ("Copying the above Artifact to the Dockerfile location") {
-            steps {
-                sh sudo cp 'Testing/Pipeline1/target/trucks.war' /opt/dockerfiles
+        stage('Building image') {
+	   steps{
+                script {
+                dockerImage = docker.build registry + ":latest"
             }
-        }
+         }
+       }
 
         stage ("Creating Docker Image by using the above Artifact and Pushing it to DockerHub Repo") {
             steps {
