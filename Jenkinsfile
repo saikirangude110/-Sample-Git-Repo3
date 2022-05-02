@@ -33,7 +33,8 @@ pipeline {
 	stage('Build Docker Image') {
 	    steps {
                  sh 'whoami'
-                 docker build -t saikirangude12/hello-world:${env.BUILD_ID}") ./Dockerfile
+                 docker build -t hello-world:4.0 ./Dockerfile
+		 docker tag hello-world:4.0 saikirangude12/hello-world:4.0
 			    }
 		    }
 	    }
