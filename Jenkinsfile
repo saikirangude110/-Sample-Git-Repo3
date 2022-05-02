@@ -2,6 +2,7 @@ pipeline {
     agent { label 'Jenkins_Node1' }
 	
 	environment {
+		registry = "saikirangude12/hello-world"
 		PROJECT_ID = 'jenkins-296812'
                 CLUSTER_NAME = 'k8s-cluster'
                 LOCATION = 'us-central1-c'
@@ -33,7 +34,7 @@ pipeline {
 	    steps {
                  sh 'whoami'
 		 script {
-		 myimage = docker.build("saikirangude12/hello-world:${env.BUILD_ID}")
+		   dockerImage = docker.build registry + ":$BUILD_NUMBER"
 			    }
 		    }
 	    }
