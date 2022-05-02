@@ -42,8 +42,6 @@ pipeline {
                             dockerImage = docker.build registry + ":latest"
         }
       }
-    }
-	    
-	 }
-    }
+    }	    
+ }
 }
