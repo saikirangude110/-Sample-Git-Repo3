@@ -23,8 +23,8 @@ pipeline {
 	    }
 	}
                
-        stage('Generating Artifact') {
-	   steps {
+            stage('Generating Artifact') {
+	             steps {
                 echo "Packaging Code..."
 	        sh 'mvn package'
 	    }
@@ -46,3 +46,4 @@ pipeline {
 	    
 	 }
     }
+}
