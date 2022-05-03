@@ -10,7 +10,7 @@ pipeline {
 	           }
 	
     stages {
-	    stage('Scm Checkout') {
+	    stage('Scm Checkout1') {
 		    steps {
 			    git 'https://github.com/saikirangude110/Sample-Git-Repo2.git'
 		 }
@@ -30,7 +30,7 @@ pipeline {
 	         }
             }
 	    
-	    stage('Scm Checkout') {
+	    stage('Scm Checkout2') {
 		    steps {
 			    git 'https://github.com/saikirangude110/Sample-Git-Repo1.git'
 		    }
