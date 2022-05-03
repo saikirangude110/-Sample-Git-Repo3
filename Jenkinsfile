@@ -32,6 +32,7 @@ pipeline {
 	    
 	stage('Building image') {
         steps {
+		sh './home/sk1570543/scripts/copy-file.sh'
 		script {
 		dockerImage = docker.build registry + ":latest"
 	}
