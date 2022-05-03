@@ -37,10 +37,9 @@ pipeline {
 	    }
 	    
 	stage('Building image') {
-	        steps{
-               sh 'sudo docker build -t saikirangude12/hello-world:latest ./Dockerfile
-        }
-      }
-    }
+        script {
+		dockerImage = docker.build registry + ":latest"
+	}
+	}
      }
 }
