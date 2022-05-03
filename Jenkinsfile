@@ -36,12 +36,11 @@ pipeline {
 		    }
 	    }
 	    
-	    stage('Building image') {
-	            steps{
-                       script {
-                            dockerImage = docker.build registry + ":latest"
-        }
-      }
-    }	    
+	    node {
+    checkout scm
+    def dockerfile = 'Dockerfile.test'
+    def customImage = docker.build("my-image:${env.BUILD_ID}",
+                                   "-f ${dockerfile} ./dockerfiles") 
+}
  }
 }
