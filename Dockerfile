@@ -4,4 +4,4 @@ MAINTAINER sagude
 
 RUN mkdir /usr/local/tomcat/webapps/myapp
 
-COPY Testing/Pipeline3/target/trucks.war /usr/local/tomcat/webapps
+COPY ./Testing/Pipeline3/target/trucks.war /usr/local/tomcat/webapps
