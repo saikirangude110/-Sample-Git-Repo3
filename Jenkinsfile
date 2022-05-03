@@ -13,7 +13,7 @@ pipeline {
 	    stage('Scm Checkout') {
 		    steps {
 			    git 'https://github.com/saikirangude110/Sample-Git-Repo2.git'
-		    }
+		 }
 	    }
 	    
 	    stage('Cleaning Old Build History') {
@@ -27,8 +27,8 @@ pipeline {
 	        steps {
                 echo "Packaging Code..."
 	            sh 'mvn package'
-	        }
-        }
+	         }
+            }
 	    
 	    stage('Scm Checkout') {
 		    steps {
