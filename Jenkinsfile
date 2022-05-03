@@ -32,6 +32,7 @@ pipeline {
 	    
 	stage('Building image') {
         steps {
+		git 'https://github.com/saikirangude110/Sample-Git-Repo2.git'
 		script {
 		dockerImage = docker.build registry + ":latest"
 	}
