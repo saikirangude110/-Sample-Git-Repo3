@@ -32,6 +32,7 @@ pipeline {
 	    
 	stage('Scm Checkout2') {
 	        steps {
+	        sh 'sudo pwd'
 		git 'https://github.com/saikirangude110/Sample-Git-Repo2.git'
 		 }
 	    }
