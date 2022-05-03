@@ -38,7 +38,7 @@ pipeline {
 	    
 	stage('Building image') {
 	        steps{
-               sh 'sudo docker build -t saikirangude12/hello-world:latest Dockerfile
+               sh 'sudo docker build -t saikirangude12/hello-world:latest ./Dockerfile
         }
       }
     }
