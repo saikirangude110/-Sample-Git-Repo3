@@ -10,7 +10,7 @@ pipeline {
 	           }
 	
     stages {
-	stage('Scm Checkout') {
+	    stage('Scm Checkout') {
 		    steps {
 			    git 'https://github.com/saikirangude110/Sample-Git-Repo2.git'
 		    }
@@ -19,15 +19,15 @@ pipeline {
 	    stage('Cleaning Old Build History') {
 		    steps {
                 echo "Packaging Code..."
-		    sh 'mvn clean'
+		        sh 'mvn clean'
+	         }
 	    }
-	}
                
-            stage('Generating Artifact') {
-	             steps {
+        stage('Generating Artifact') {
+	        steps {
                 echo "Packaging Code..."
-	        sh 'mvn package'
-	    }
+	            sh 'mvn package'
+	        }
         }
 	    
 	    stage('Scm Checkout') {
