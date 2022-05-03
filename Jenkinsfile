@@ -30,10 +30,18 @@ pipeline {
 	         }
             }
 	    
-	    stage('Scm Checkout2') {
-		    steps {
-			    git 'https://github.com/saikirangude110/Sample-Git-Repo1.git'
-		    }
+	stage('Scm Checkout2') {
+	        steps {
+		git 'https://github.com/saikirangude110/Sample-Git-Repo1.git'
+		 }
 	    }
+	    
+	stage('Building image') {
+	        steps{
+                script {
+                dockerImage = docker.build registry + ":latest"
+        }
+      }
+    }
      }
 }
