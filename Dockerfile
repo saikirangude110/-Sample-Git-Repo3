@@ -6,4 +6,4 @@ RUN mkdir /usr/local/tomcat/webapps/myapp
 
 RUN pwd
 
-COPY ./Pipeline3/target/trucks.war /usr/local/tomcat/webapps
+COPY /opt/jenkins-home/workspace/Testing/Pipeline3/target/trucks.war /usr/local/tomcat/webapps
