@@ -12,7 +12,7 @@ pipeline {
     stages {
 	    stage('Scm Checkout1') {
 		    steps {
-			    git 'https://github.com/saikirangude110/Sample-Git-Repo2.git'
+			    git 'https://github.com/saikirangude110/Sample-Git-Repo3.git'
 		 }
 	    }
 	    
@@ -32,7 +32,7 @@ pipeline {
 	    
 	stage('Building image') {
         steps {
-		git 'https://github.com/saikirangude110/Sample-Git-Repo2.git'
+		git 'https://github.com/saikirangude110/Sample-Git-Repo3.git'
 		script {
 		dockerImage = docker.build registry + ":latest"
 	}
